@@ -1,0 +1,20 @@
+.root{
+    -fx-background-color: rgb(250, 205, 255);
+    -fx-font-family:fantasy;
+    -fx-font-size: larger;
+}
+
+Button{
+    -fx-background-color: rgb(234, 14, 14);
+    -fx-border-width: 2px;
+    -fx-font-size: larger;
+    -fx-border-radius: 4px;
+
+}
+
+Button:hover{
+    -fx-background-color: rgb(170, 17, 99);
+    -fx-border-width: 2px;
+    /* -fx-font-size: 22px; */
+    -fx-border-radius: 4px;
+}

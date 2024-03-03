@@ -1,0 +1,20 @@
+.root{
+    -fx-background-color: blanchedalmond;
+    -fx-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    -fx-font-size: larger;
+}
+
+Button{
+    -fx-background-color: aqua;
+    -fx-border-width: 2px;
+    -fx-font-size: larger;
+    -fx-border-radius: 4px;
+
+}
+
+Button:hover{
+    -fx-background-color: rgb(88, 170, 17);
+    -fx-border-width: 2px;
+    /* -fx-font-size: 22px; */
+    -fx-border-radius: 4px;
+}
