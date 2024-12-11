@@ -350,7 +350,7 @@ public class NuevoLibro extends javax.swing.JFrame {
 
         //comprobamos que el valor se ha escogido
         if (valor < 0 || valor > 5) {
-            JLabel tipoLibro = new JLabel("Debe escoger un tipo de libro.");
+            JLabel tipoLibro = new JLabel("Debe escoger un valor para el libro.");
             JButton aceptar = new JButton("Aceptar");
             aceptar.addActionListener(new ActionListener(){
                 @Override
