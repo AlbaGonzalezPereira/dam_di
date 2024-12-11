@@ -276,7 +276,7 @@ public class NuevoLibro extends javax.swing.JFrame {
         
         //comprobamos que el valor se ha escogido
         if (valor < 0 || valor > 5){
-            JOptionPane.showMessageDialog(null, "Debe escoger un tipo de libro.");
+            JOptionPane.showMessageDialog(null, "Debe escoger un valor para el libro.");
             return;
         }
         
