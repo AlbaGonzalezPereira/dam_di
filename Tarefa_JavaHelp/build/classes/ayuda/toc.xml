@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<toc version="1.0"> <!--  categoryclosedimage="FolderClosed" categoryopenimage="FolderOpened"  
+topicimage="ItemIco"-->
+        <tocitem text="Inicio"    target="aplicacion">
+           <tocitem text="Ventana inicio"    target="ventana_inicio"/>    
+           <tocitem text="Ventana participantes"    target="ventana_primaria"/>
+           <tocitem text="Ventana grupos"    target="ventana_secundaria"/>
+           <tocitem text="Ventana lugares"    target="ventana_terciaria"/>
+        </tocitem>
+</toc>

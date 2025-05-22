@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="31c561b2-eb15-4f57-9666-2c18bfe3525b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT a.idArticulo, a.descripcion, SUM(dp.total) AS INGRESOS_TOTALES
+FROM detalle_pedidos dp
+INNER JOIN articulos a ON dp.idArticulo = a.idArticulo
+GROUP BY a.idArticulo, a.descripcion;]]>
+	</queryString>
+	<field name="idArticulo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="INGRESOS_TOTALES" class="java.math.BigDecimal"/>
+	<group name="idArticulo">
+		<groupExpression><![CDATA[$F{idArticulo}]]></groupExpression>
+	</group>
+	<group name="descripcion">
+		<groupExpression><![CDATA[$F{descripcion}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="117" y="26" width="362" height="35" uuid="6e268410-0120-4b48-ade1-a367f9bdc2e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INGRESOS TOTALES POR ARTÍCULO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="21" width="117" height="20" uuid="573a7ecc-231b-4c3b-ab75-5f8277cffd14"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id del Artículo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="21" width="181" height="20" uuid="0c6b02a9-bf87-4b8b-90e4-47a5b2f6ea02"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="426" y="21" width="125" height="20" uuid="74ab8d6f-c2b2-43a3-a33f-c46ba97f3731"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ingresos totales]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="72637c99-7820-47b8-9ad6-1bd99052094c"/>
+				<textFieldExpression><![CDATA[$F{idArticulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="0" width="100" height="20" uuid="28c275de-430e-4d6b-8524-3e1e9673348e"/>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="199" y="13" width="178" height="20" uuid="ee580b4c-5840-4aba-86cd-e4fedfd0190f"/>
+				<text><![CDATA[ALBA MARÍA GONZÁLEZ PEREIRA]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="199" y="18" width="190" height="20" uuid="9b7a8c56-b8d0-4d3d-9bf1-69c30a2c995c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Páxina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="389" y="18" width="40" height="20" uuid="5ba60c06-7bd4-4792-be02-ad58eaa54b84"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="215" y="11" width="125" height="20" uuid="20c24e57-5cf5-485f-b957-cf5e223fe890"/>
+				<textFieldExpression><![CDATA[$F{INGRESOS_TOTALES}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
