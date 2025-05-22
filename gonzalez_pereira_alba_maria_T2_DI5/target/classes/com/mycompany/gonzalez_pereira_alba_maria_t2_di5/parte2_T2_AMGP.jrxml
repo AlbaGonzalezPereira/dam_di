@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1bea54ec-5561-4d70-93d3-17e14a8d3df3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="7"/>
+	<parameter name="id" class="java.lang.Integer"/>
+	<parameter name="titulo" class="java.lang.String"/>
+	<parameter name="ingresos" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT a.idArticulo, a.descripcion, SUM(dp.Unidades) FROM detalle_pedidos dp
+INNER JOIN articulos a ON dp.idArticulo = a.idArticulo
+WHERE a.idArticulo =  $P{id}
+GROUP BY a.idArticulo, a.descripcion;]]>
+	</queryString>
+	<field name="idArticulo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SUM(dp.Unidades)" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="151" y="15" width="267" height="46" uuid="73776aaa-caf5-4748-9828-95f046599f45"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[RECONTO_ARTICULOS]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="29" y="0" width="100" height="20" uuid="7610bc30-0b85-45c0-af9c-a46b3a0c37c8"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id de Artículo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="0" width="189" height="20" uuid="0472a86a-27f2-4577-9e3f-80af950f300c"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="408" y="2" width="147" height="20" uuid="4cdf6d13-e585-459f-a7cc-979cfb1c60d2"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Número de pedidos]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="174" y="0" width="189" height="20" uuid="fcc45c5c-40f3-442e-8fbe-535a3d9dea3a"/>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="29" y="0" width="100" height="20" uuid="54a494b3-1447-4299-b0ab-1259ba073a7b"/>
+				<textFieldExpression><![CDATA[$F{idArticulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="408" y="0" width="100" height="20" uuid="74c5b893-a7d7-4811-9468-fadd4c45cbed"/>
+				<textFieldExpression><![CDATA[$F{SUM(dp.Unidades)}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="196" y="13" width="181" height="20" uuid="75234cd8-80d7-49d7-a6e4-795eca260376"/>
+				<text><![CDATA[ALBA MARÍA GONZÁLEZ PEREIRA]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="196" y="17" width="153" height="20" uuid="ecf73ae4-91cc-4753-85f1-b4ffe51913d3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Páxina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
