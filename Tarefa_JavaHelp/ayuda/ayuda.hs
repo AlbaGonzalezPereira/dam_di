@@ -3,10 +3,10 @@
 
 
 <helpset version="1.0">
-  <title>Ejemplo ayuda JavaHelp</title>
+  <title>Tarea JavaHelp</title>
   <maps>
     <!-- Pagina por defecto al mostrar la ayuda -->
-    <homeID>aplicacion</homeID>
+    <homeID>ventana_inicio</homeID>
     <!-- Que mapa deseamos -->
     <mapref location="map.jhm" />
   </maps>
