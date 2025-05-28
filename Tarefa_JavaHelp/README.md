@@ -176,6 +176,10 @@ private void ponLaAyuda() {
         hb.enableHelpKey(getContentPane(), "ventana_inicio",
                 helpset); //Hacemos que el componente responda a la pulsación de la tecla de ayuda F1.
 
+        //uso del método enableHelp()
+        // Para que el botón grupos tuviera ayuda contextual (por F1)	"ventana_secundaria"
+        //hb.enableHelp(btnGrupos, "ventana_secundaria", helpset);	
+
     } catch (Exception e) {
         e.printStackTrace();
     }
