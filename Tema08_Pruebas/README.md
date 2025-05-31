@@ -7,7 +7,7 @@ Calidad no es sólo que el software funcione bien y que vaya rápido, sino que a
 
 Asegurar los requisitos de calidad de software lleva un coste y trabajo asociado.
 
-La ausencia o la mala gestión de una estrategia de pruebas en un proyecto software pueden suponer:
+La **ausencia o la mala gestión de una estrategia de pruebas** en un proyecto software pueden suponer:
 
 - Falta de satisfacción de los clientes.
 - Fallos en la explotación por defectos no detectados y eliminados a tiempo.
@@ -22,7 +22,6 @@ Las **pruebas** deben entenderse como:
 - **Verificación**: El producto que se está construyendo funciona correctamente; es decir, es capaz de realizar la tarea para la cual ha sido diseñado.
 - **Validación**: El producto terminado, además de ser correcto, es conforme con lo que el cliente había esperado.
 
-
 Cuanto más tarde es encontrado un defecto más cuesta (en tiempo, recursos y dinero) su corrección. Por tanto, la **estrategia de pruebas** contribuye al ahorro de coste del proyecto.
 
 **Los defectos se introducen, en su mayoría, durante la fase de análisis de requisitos y diseño, pero suelen ser detectadas durante las pruebas de aceptación y en la explotación (que son las fases donde resulta más costosa económicamente su reparación)**.
@@ -33,36 +32,36 @@ Los **tipos de pruebas al software** se pueden clasificar en:
 
 - **Pruebas unitarias**: se realizan a módulos o clases del programa, por separado. Es decir, a cada unidad que compone la aplicación. Para hacerlas, debemos de tener en cuenta:
 
-  - La interfaz del módulo o componente.
-  - El impacto de datos globales sobre el módulo.
-  - Las estructuras de datos en el módulo.
-  - Las condiciones límite.
-  - Los distintos caminos de ejecución de las estructuras de control.
+    - La interfaz del módulo o componente.
+    - El impacto de datos globales sobre el módulo.
+    - Las estructuras de datos en el módulo.
+    - Las condiciones límite.
+    - Los distintos caminos de ejecución de las estructuras de control.
 
 - **Pruebas de integración**: integran componentes y módulos del programa según un orden preestablecido. Se prueba el funcionamiento de la interrelación de todos los módulos.La prueba de integración verifica la interacción entre componentes del sistema.
 
-Dependiendo de la filosofía de integración, se definen dos técnicas: **ascendentes** y **descendentes**.
+  Dependiendo de la filosofía de integración, se definen dos técnicas: **ascendentes** y **descendentes**.
 
 - **Pruebas de sistema**: validan que la aplicación tenga la funcionalidad que el usuario final espera de ella. Las pruebas de sistema se ven como una "caja negra".
 
-Las pruebas de sistema verifican el comportamiento del sistema en su conjunto. En concreto, se comprueban los requisitos no funcionales de la aplicación:
+  Las pruebas de sistema verifican el comportamiento del sistema en su conjunto. En concreto, se comprueban los requisitos no funcionales de la aplicación:
 
-  - Seguridad.
-  - Velocidad.
-  - Exactitud.
-  - Fiabilidad.
+    - Seguridad.
+    - Velocidad.
+    - Exactitud.
+    - Fiabilidad.
 
-También se prueban los interfaces externos con otros sistemas, utilidades, unidades físicas y el entorno operativo.
+  También se prueban los interfaces externos con otros sistemas, utilidades, unidades físicas y el entorno operativo.
 
-Entre las pruebas de sistema más relevantes, encontramos las de ***Configuración*** y ***Recuperación***.
+  Entre las pruebas de sistema más relevantes, encontramos las de ***Configuración*** y ***Recuperación***.
 
-- **Pruebas de regresión**: después de realizar algún tipo de modificación en el código del programa, consisten en volver a ejecutar un conjunto de pruebas que se han llevado a cabo anteriormente para asegurarse de que los cambios no han propagado efectos colaterales no deseados.
+  - **Pruebas de regresión**: después de realizar algún tipo de modificación en el código del programa, consisten en volver a ejecutar un conjunto de pruebas que se han llevado a cabo anteriormente para asegurarse de que los cambios no han propagado efectos colaterales no deseados.
 
-- **Pruebas funcionales**: su objetivo es detectar errores en la implementación de los requerimientos. 
+  - **Pruebas funcionales**: su objetivo es detectar errores en la implementación de los requerimientos. 
 
-Son pruebas de **caja negra** y las personas encargadas de realizar las pruebas, no les importa cómo se generan las respuestas, sólo analizan las salidas de la aplicación frente a sus entradas.
+  Son pruebas de **caja negra** y las personas encargadas de realizar las pruebas, no les importa cómo se generan las respuestas, sólo analizan las salidas de la aplicación frente a sus entradas.
 
-Las pruebas funcionales intentan responder a las preguntas: "*¿funciona esta utilidad de la aplicación?*", "*¿el usuario podrá hacer esto?*".
+  Las pruebas funcionales intentan responder a las preguntas: "*¿funciona esta utilidad de la aplicación?*", "*¿el usuario podrá hacer esto?*".
 
 
 - **Pruebas de capacidad y rendimiento**. 
@@ -73,7 +72,7 @@ Las pruebas funcionales intentan responder a las preguntas: "*¿funciona esta ut
 
 - **Pruebas de seguridad**: la prueba de seguridad intenta verificar que los mecanismos de protección incorporados en nuestro sistema lo protegen de accesos no autorizados. Es decir, determinan los niveles de permiso de usuarios, las operaciones de acceso al sistema y acceso a los datos.
 
-En concreto, se intenta verificar que el **sistema es robusto** frente a problemas de seguridad, tales como:
+  En concreto, se intenta verificar que el **sistema es robusto** frente a problemas de seguridad, tales como:
 
   - Intentar conseguir las claves de acceso de cualquier forma.
   - Atacar con software a medida.
@@ -82,12 +81,12 @@ En concreto, se intenta verificar que el **sistema es robusto** frente a problem
 
 - **Pruebas de usuario**: este tipo de prueba (también conocida como de usabilidad) se refiere a asegurar que la interfaz de usuario (GUI) sea amigable, intuitiva y que funcione correctamente.
 
-Podemos evaluar la usabilidad de una aplicación midiendo la manera en que el usuario realiza una tarea concreta, el tiempo y **número de clics** que supone acabarla y los errores que comete durante el proceso.
+  Podemos evaluar la usabilidad de una aplicación midiendo la manera en que el usuario realiza una tarea concreta, el tiempo y **número de clics** que supone acabarla y los errores que comete durante el proceso.
 
 
 - **Pruebas de aceptación**: estas pruebas son realizadas por el cliente final. Consisten en pruebas funcionales sobre el sistema completo. Se realizan sobre el producto terminado y nunca durante el desarrollo del sistema o de la aplicación.
 
-Para su ejecución se suelen emplear dos técnicas de aceptación: **alfa** y **beta**:
+  Para su ejecución se suelen emplear dos técnicas de aceptación: **alfa** y **beta**:
 
   - **Pruebas alfa**: Las lleva a cabo el cliente en el lugar donde se ha desarrollado la aplicación y en presencia del desarrollador. El cliente utilizará la aplicación como lo haría en su lugar de trabajo. Se utiliza un entorno controlado con las mismas condiciones que hay en el lugar de trabajo habitual. 
 
