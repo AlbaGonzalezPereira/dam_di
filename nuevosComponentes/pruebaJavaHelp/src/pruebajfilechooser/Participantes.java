@@ -157,11 +157,13 @@ public class Participantes extends javax.swing.JFrame {
             Path or = Paths.get(origen.getAbsolutePath());
             Path dest = Paths.get(des.getAbsolutePath());
 
+            
             try {
                 Files.copy(or, dest, StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException ex) {
-                Logger.getLogger(Participantes.class.getName()).log(Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(Participantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
+           
 
         } else {
             System.out.println("Se ha cancelado la subida");
@@ -195,11 +197,13 @@ public class Participantes extends javax.swing.JFrame {
             Path or = Paths.get(origen.getAbsolutePath());
             File destinofichero = new File("C:\\Users\\alba_\\Downloads\\pelis_torrent", origen.getName());
             Path dest = Paths.get(destinofichero.getAbsolutePath());
+           
             try {
                 Files.copy(or, dest, StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException ex) {
-                Logger.getLogger(Participantes.class.getName()).log(Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(Participantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
+            
         } else {
             System.out.println("Se ha cancelado la subida");
         }
