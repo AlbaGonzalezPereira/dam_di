@@ -1,3 +1,30 @@
+# SIMULACRO
+
+## Código fuente:
+
+### main:
+
+```java
+package simulacro3evaldi;
+
+import javax.swing.JFrame;
+
+/**
+ *
+ * @author alba_
+ */
+public class Simulacro3EvalDI {
+    
+    public static void main(String[] args) {
+       FramePrincipal frameprincipal = new FramePrincipal();      
+    }
+ 
+}
+
+```
+### **``FramePrincipal.java``**:
+
+```java
 package simulacro3evaldi;
 
 import java.awt.Color;
@@ -95,7 +122,7 @@ public class FramePrincipal extends JFrame {
         panelBotonesFile.add(botonSubir);
         panelBotonesFile.add(botonGuardar);
 
-        // Agregamos componentes al panel principal
+        //Agregamos componentes al panel principal
         panelPrincipal.add(titulo);
         panelPrincipal.add(panelNombre);
         panelPrincipal.add(panelApellidos);
@@ -115,7 +142,7 @@ public class FramePrincipal extends JFrame {
         frame.setVisible(true);
 
         /**
-         * *************************JFILECHOOSER**************************************
+         * *************************FileChooser**************************************
          */
         botonGuardar.addActionListener(new ActionListener() {
             @Override
@@ -208,9 +235,8 @@ public class FramePrincipal extends JFrame {
             }
         });
 
-        /**
-         * *************************JCOLORCHOOSER*********************************
-         */
+
+        /************************JCOLORCHOOSER**********************************/
         botonElegirColor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -232,9 +258,58 @@ public class FramePrincipal extends JFrame {
                 };
 
                 JDialog dialogo = JColorChooser.createDialog(frame, "Elige un color", true, colorChooser, okListener, cancelListener);
+
                 dialogo.setVisible(true);
             }
         });
     }
 
 }
+```
+
+### **``Persona.java``**:
+
+```java
+
+package simulacro3evaldi;
+
+import java.io.Serializable;
+
+/**
+ *
+ * @author alba_
+ */
+public class Persona implements Serializable {
+    private String nombre;
+    private String apellidos;
+
+    public Persona() {
+    }
+
+    public Persona(String nombre, String apellidos) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    @Override
+    public String toString() {
+        return "Persona:" + nombre + " " + apellidos;
+    }
+}
+```

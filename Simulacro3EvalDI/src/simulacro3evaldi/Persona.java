@@ -1,4 +1,3 @@
-
 package simulacro3evaldi;
 
 import java.io.Serializable;
@@ -8,6 +7,7 @@ import java.io.Serializable;
  * @author alba_
  */
 public class Persona implements Serializable {
+
     private String nombre;
     private String apellidos;
 
@@ -39,7 +39,5 @@ public class Persona implements Serializable {
     public String toString() {
         return "Persona:" + nombre + " " + apellidos;
     }
-    
-    
-    
+
 }
