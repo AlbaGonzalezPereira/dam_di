@@ -22,6 +22,73 @@ Las clases Externalizable también deben tener un constructor sin argumentos.
 
 ## Ejemplo de código:
 
+**``Data.java``**:
+
+```java
+package pantallas;
+
+import java.io.Serializable;
+
+/**
+ *
+ * @author alba_
+ */
+public class Data implements Serializable{
+    private String lugar;
+    private String activo;
+    private String edicion;
+    private int maxParticipantes;
+
+    public Data() {
+    }
+
+    public Data(String lugar, String activo, String edicion, int maxParticipantes) {
+        this.lugar = lugar;
+        this.activo = activo;
+        this.edicion = edicion;
+        this.maxParticipantes = maxParticipantes;
+    }
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
+    }
+
+    public String getActivo() {
+        return activo;
+    }
+
+    public void setActivo(String activo) {
+        this.activo = activo;
+    }
+
+    public String getEdicion() {
+        return edicion;
+    }
+
+    public void setEdicion(String edicion) {
+        this.edicion = edicion;
+    }
+
+    public int getMaxParticipantes() {
+        return maxParticipantes;
+    }
+
+    public void setMaxParticipantes(int maxParticipantes) {
+        this.maxParticipantes = maxParticipantes;
+    }
+
+    @Override
+    public String toString() {
+        return "Data{" + "lugar=" + lugar + ", activo=" + activo + ", edicion=" + edicion + ", maxParticipantes=" + maxParticipantes + '}';
+    }  
+}
+
+```
+
 ```java
 public class PantallaLugares extends JPanel implements Serializable {
 
@@ -34,7 +101,7 @@ public class PantallaLugares extends JPanel implements Serializable {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new Insets(0, 10, 10, 10);
 
-        .....
+        /*  ...resto código...  */
         
 
         //Panel botones 
@@ -42,7 +109,7 @@ public class PantallaLugares extends JPanel implements Serializable {
         panelBotones.setBackground(Color.WHITE);
         Dimension tamanhoBoton = new Dimension(120, 40);
 
- //Botón Escribir
+        //Botón Escribir
         JButton botonEscribir = new JButton("Escribir");
         botonEscribir.setFont(new Font("Reem Kufi", Font.BOLD, 14));
         botonEscribir.setBackground(new Color(58, 110, 165));
@@ -65,52 +132,51 @@ public class PantallaLugares extends JPanel implements Serializable {
         panelFormulario.add(panelBotones, fgbc);
 
 
-//Eventos botones Escribir y Leer
-botonEscribir.addActionListener(new ActionListener() {
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        String lugarTem = lugar.getText();
-        String activoTem = (String) activo.getSelectedItem();
-        String edicionTem = edicion.getText();
-        int maxParticipantesTem = Integer.parseInt(maxParticipantes.getText());
-        try ( ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("registroAulas.txt"));) {
+        //Eventos botones Escribir y Leer
+        botonEscribir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String lugarTem = lugar.getText();
+                String activoTem = (String) activo.getSelectedItem();
+                String edicionTem = edicion.getText();
+                int maxParticipantesTem = Integer.parseInt(maxParticipantes.getText());
+                try ( ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("registroAulas.txt"));) {
 
-            Data dataEscritos = new Data(lugarTem, activoTem, edicionTem, maxParticipantesTem);
-            oos.writeObject(dataEscritos);
-            
-            // Borramos el contenido de los campos una vez escritos
-            lugar.setText("");
-            activo.setSelectedIndex(0);
-            edicion.setText("");
-            maxParticipantes.setText("");
+                    Data dataEscritos = new Data(lugarTem, activoTem, edicionTem, maxParticipantesTem);
+                    oos.writeObject(dataEscritos);
+                    
+                    // Borramos el contenido de los campos una vez escritos
+                    lugar.setText("");
+                    activo.setSelectedIndex(0);
+                    edicion.setText("");
+                    maxParticipantes.setText("");
 
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(PantallaLugares.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(PantallaLugares.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-});
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(PantallaLugares.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(PantallaLugares.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
 
-botonLeer.addActionListener(new ActionListener() {
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        try ( ObjectInputStream ois = new ObjectInputStream(new FileInputStream("registroAulas.txt"));) {
-            Data dataLeidos = (Data) ois.readObject();
-            lugar.setText(dataLeidos.getLugar());
-            activo.setSelectedItem(dataLeidos.getActivo());
-            edicion.setText(dataLeidos.getEdicion());
-            maxParticipantes.setText(String.valueOf(dataLeidos.getMaxParticipantes()));
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(PantallaLugares.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(PantallaLugares.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(PantallaLugares.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-});
-
+        botonLeer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try ( ObjectInputStream ois = new ObjectInputStream(new FileInputStream("registroAulas.txt"));) {
+                    Data dataLeidos = (Data) ois.readObject();
+                    lugar.setText(dataLeidos.getLugar());
+                    activo.setSelectedItem(dataLeidos.getActivo());
+                    edicion.setText(dataLeidos.getEdicion());
+                    maxParticipantes.setText(String.valueOf(dataLeidos.getMaxParticipantes()));
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(PantallaLugares.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(PantallaLugares.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(PantallaLugares.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
     }
 }
 ```
